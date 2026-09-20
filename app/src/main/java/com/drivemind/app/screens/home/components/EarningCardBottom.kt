@@ -1,0 +1,18 @@
+package com.drivemind.app.screens.home.components
+
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun EarningCardBottom(){
+    Text(
+        text = "6 Corridas • 3h23min",
+        modifier = Modifier
+            .padding(top = 20.dp),
+        fontSize = 14.sp
+    )
+}

@@ -1,31 +1,40 @@
 package com.drivemind.app.ui.theme
 
+import android.app.Activity
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.foundation.isSystemInDarkTheme
-
-private val LightColorScheme = lightColorScheme(
-    primary = DriveMindPrimary,
-    secondary = DriveMindSecondary,
-    background = DriveMindBackground
-)
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = DriveMindPrimary,
-    secondary = DriveMindSecondary
+    primary = DriveMindPrimaryGreen,
+    secondary = DriveMindEarningGreen,
+    background = DriveMindBackground,
+    surface = DriveMindCardBackground,
+    surfaceVariant = DriveMindInnerCard,
+    onBackground = TextWhite,
+    onSurface = TextWhite,
+    onSurfaceVariant = TextGray
 )
 
 @Composable
 fun DriveMindTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true, // Força o tema escuro como padrão da aplicação
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) {
-        DarkColorScheme
-    } else {
-        LightColorScheme
+    val colorScheme = DarkColorScheme
+    val view = LocalView.current
+
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            // Ajusta a barra de status do sistema para acompanhar o tema escuro
+            window.statusBarColor = colorScheme.background.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
+        }
     }
 
     MaterialTheme(
