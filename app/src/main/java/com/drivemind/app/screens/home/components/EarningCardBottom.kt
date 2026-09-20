@@ -11,8 +11,6 @@ import androidx.compose.ui.unit.sp
 fun EarningCardBottom(){
     Text(
         text = "6 Corridas • 3h23min",
-        modifier = Modifier
-            .padding(top = 20.dp),
         fontSize = 14.sp
     )
 }

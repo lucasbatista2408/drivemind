@@ -32,7 +32,6 @@ fun DriveMindTheme(
         SideEffect {
             val window = (view.context as Activity).window
             // Ajusta a barra de status do sistema para acompanhar o tema escuro
-            window.statusBarColor = colorScheme.background.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
         }
     }

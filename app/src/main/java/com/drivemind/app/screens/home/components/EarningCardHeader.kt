@@ -16,14 +16,14 @@ fun EarningCardHeader(){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Ganhos hoje",
-            fontSize = 16.sp
+            text = "GANHOS HOJE",
+            fontSize = 14.sp
         )
 
         Text(
             text = "R$ 0,00",
             modifier = Modifier
-                .padding(top = 4.dp),
+                .padding(top = 4.dp, bottom = 4.dp),
             fontSize = 32.sp,
             color = MaterialTheme.colorScheme.primary
         )
